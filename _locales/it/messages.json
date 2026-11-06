@@ -1,0 +1,43 @@
+{
+ "nome": {
+  "message": "Salva immagine come PNG, JPG, WebP"
+ },
+ "descrizione": {
+  "message": "Salva qualsiasi immagine come PNG, JPG o WebP dal tasto destro. Nessun dato raccolto, nessun server."
+ },
+ "menu": {
+  "message": "Salva immagine come"
+ },
+ "menu_png": {
+  "message": "PNG"
+ },
+ "menu_jpg": {
+  "message": "JPG"
+ },
+ "menu_webp": {
+  "message": "WebP"
+ },
+ "errore": {
+  "message": "Immagine non salvata"
+ },
+ "errore_blob": {
+  "message": "Questa immagine è generata dalla pagina e non si può scaricare di nuovo."
+ },
+ "errore_permesso": {
+  "message": "Serve il permesso per il sito dell'immagine: senza, non posso scaricarla."
+ },
+ "errore_scarico": {
+  "message": "Il sito non ha dato l'immagine (codice $CODICE$).",
+  "placeholders": {
+   "codice": {
+    "content": "$1"
+   }
+  }
+ },
+ "errore_formato": {
+  "message": "Formato dell'immagine non supportato (per esempio SVG)."
+ },
+ "nome_predefinito": {
+  "message": "immagine"
+ }
+}
