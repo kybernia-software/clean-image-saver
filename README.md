@@ -20,7 +20,7 @@ draws it on an `OffscreenCanvas`, converts it with `convertToBlob` and saves it 
 
 ## Privacy
 
-See [docs/privacy.html](docs/privacy.html).
+See the [privacy policy](https://kybernia-software.github.io/clean-image-saver/privacy.html): no data is collected.
 
 ## License
 
