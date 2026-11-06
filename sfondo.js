@@ -3,9 +3,10 @@
 
 const FORMATI = [
   { id: "png", tipo: "image/png", est: "png" },
-  { id: "jpg", tipo: "image/jpeg", est: "jpg", qualita: 0.92 },
-  { id: "webp", tipo: "image/webp", est: "webp", qualita: 0.92 },
+  { id: "jpg", tipo: "image/jpeg", est: "jpg", perdita: true },
+  { id: "webp", tipo: "image/webp", est: "webp", perdita: true },
 ];
+const PREDEFINITE = { chiedi: true, qualita: 92 }; // come in impostazioni.js
 const testo = (chiave, ...valori) => chrome.i18n.getMessage(chiave, valori) || chiave;
 
 // Il menu si crea all'installazione e agli aggiornamenti (Chrome lo conserva fra un riavvio e l'altro)
@@ -44,15 +45,16 @@ async function salva(indirizzo, formato, permesso) {
   const risposta = await fetch(indirizzo, { credentials: "include" });
   if (!risposta.ok) throw new Error(testo("errore_scarico", String(risposta.status)));
   const originale = await risposta.blob();
-  const convertita = await converti(originale, formato);
+  const scelte = await chrome.storage.sync.get(PREDEFINITE);
+  const convertita = await converti(originale, formato, scelte.qualita / 100);
   await chrome.downloads.download({
     url: await inDataUrl(convertita),
     filename: nomeFile(indirizzo, formato.est),
-    saveAs: true,
+    saveAs: scelte.chiedi,
   });
 }
 
-async function converti(blob, formato) {
+async function converti(blob, formato, qualita) {
   let immagine;
   try {
     immagine = await createImageBitmap(blob);
@@ -68,7 +70,7 @@ async function converti(blob, formato) {
   }
   disegno.drawImage(immagine, 0, 0);
   immagine.close();
-  return tela.convertToBlob({ type: formato.tipo, quality: formato.qualita });
+  return tela.convertToBlob(formato.perdita ? { type: formato.tipo, quality: qualita } : { type: formato.tipo });
 }
 
 // Nel lavoratore di sfondo non c'è URL.createObjectURL: il file si passa ai download come indirizzo «data:»

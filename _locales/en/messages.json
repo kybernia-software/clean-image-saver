@@ -39,5 +39,26 @@
  },
  "nome_predefinito": {
   "message": "image"
+ },
+ "impostazioni": {
+  "message": "Settings"
+ },
+ "opz_chiedi": {
+  "message": "Ask where to save each time"
+ },
+ "opz_chiedi_nota": {
+  "message": "When off, images go straight to your downloads folder."
+ },
+ "opz_qualita": {
+  "message": "JPG and WebP quality"
+ },
+ "opz_qualita_nota": {
+  "message": "Higher = better image but bigger file. PNG is always lossless."
+ },
+ "opz_privacy": {
+  "message": "Clean Image Saver collects no data and uses no servers: images are downloaded from their own site, converted in your browser and saved only on your computer."
+ },
+ "opz_salvato": {
+  "message": "Saved"
  }
 }

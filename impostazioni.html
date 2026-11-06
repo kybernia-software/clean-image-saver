@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title data-testo="impostazioni"></title>
+  <style>
+    :root { --fondo: #f2f3f5; --riquadro: #ffffff; --testo: #1f2328; --tenue: #59636e; --accento: #2563eb; }
+    @media (prefers-color-scheme: dark) {
+      :root { --fondo: #1b1d21; --riquadro: #26292e; --testo: #e6e8eb; --tenue: #9aa3ad; --accento: #5b8def; }
+    }
+    body { margin: 0; padding: 16px; min-width: 360px; background: var(--fondo); color: var(--testo);
+           font: 14px/1.45 system-ui, -apple-system, "Segoe UI", sans-serif; }
+    .riquadro { background: var(--riquadro); border-radius: 10px; padding: 14px 16px; margin-bottom: 12px; }
+    label { display: flex; align-items: center; gap: 10px; cursor: pointer; }
+    input[type=checkbox], input[type=range] { accent-color: var(--accento); }
+    input[type=range] { flex: 1; }
+    .nota { color: var(--tenue); font-size: 12.5px; margin: 6px 0 0; }
+    .riga { display: flex; align-items: center; gap: 10px; }
+    output { min-width: 3ch; text-align: right; font-variant-numeric: tabular-nums; }
+    #salvato { color: var(--tenue); font-size: 12.5px; height: 1em; }
+  </style>
+</head>
+<body>
+  <div class="riquadro">
+    <label><input type="checkbox" id="chiedi"> <span data-testo="opz_chiedi"></span></label>
+    <p class="nota" data-testo="opz_chiedi_nota"></p>
+  </div>
+  <div class="riquadro">
+    <div data-testo="opz_qualita"></div>
+    <div class="riga"><input type="range" id="qualita" min="50" max="100" step="1"> <output id="valore"></output></div>
+    <p class="nota" data-testo="opz_qualita_nota"></p>
+  </div>
+  <div class="riquadro">
+    <p class="nota" data-testo="opz_privacy"></p>
+  </div>
+  <div id="salvato"></div>
+  <script src="impostazioni.js"></script>
+</body>
+</html>
